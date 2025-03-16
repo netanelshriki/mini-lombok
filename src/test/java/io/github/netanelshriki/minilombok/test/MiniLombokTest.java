@@ -11,11 +11,11 @@ public class MiniLombokTest {
     @Test
     public void testAllArgsConstructor() {
         // Create an instance using the generated constructor
-        TestModel model = TestModel_MiniLombok.create("John Doe", 30, true);
+        TestModel model = TestModel.create("John Doe", 30, true);
         
-        assertEquals("John Doe", TestModel_MiniLombok.getName(model));
-        assertEquals(30, TestModel_MiniLombok.getAge(model));
-        assertTrue(TestModel_MiniLombok.isActive(model));
+        assertEquals("John Doe", model.getName());
+        assertEquals(30, model.getAge());
+        assertTrue(model.isActive());
     }
     
     @Test
@@ -27,9 +27,9 @@ public class MiniLombokTest {
         model.active = false;
         
         // Use getters to verify values
-        assertEquals("Jane Doe", TestModel_MiniLombok.getName(model));
-        assertEquals(25, TestModel_MiniLombok.getAge(model));
-        assertFalse(TestModel_MiniLombok.isActive(model));
+        assertEquals("Jane Doe", model.getName());
+        assertEquals(25, model.getAge());
+        assertFalse(model.isActive());
     }
     
     @Test
@@ -38,9 +38,9 @@ public class MiniLombokTest {
         TestModel model = new TestModel();
         
         // Use setters to set values
-        TestModel_MiniLombok.setName(model, "Alice");
-        TestModel_MiniLombok.setAge(model, 28);
-        TestModel_MiniLombok.setActive(model, true);
+        model.setName("Alice");
+        model.setAge(28);
+        model.setActive(true);
         
         // Verify values directly
         assertEquals("Alice", model.name);
@@ -58,6 +58,6 @@ public class MiniLombokTest {
         
         // Verify toString output
         String expected = "TestModel{name=Bob, age=35, active=true}";
-        assertEquals(expected, TestModel_MiniLombok.toString(model));
+        assertEquals(expected, model.toString());
     }
 }
